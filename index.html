@@ -2,57 +2,283 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Domain Connected 🎉</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Amplify Creative Studios</title>
+  <meta name="description" content="Amplify Creative Studios — photography, videography, full‑production, and studio rental in the DMV." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: "Segoe UI", Roboto, sans-serif;
-      background: linear-gradient(135deg, #007cf0, #00dfd8);
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      text-align: center;
+    :root{
+      --bg:#0b0c10; --card:#121318; --muted:#9aa3af; --text:#e5e7eb; --accent:#7c3aed; --accent-2:#22d3ee; --border:#1f2330;
     }
-
-    h1 {
-      font-size: 2.8rem;
-      margin-bottom: 0.5em;
-    }
-
-    p {
-      font-size: 1.2rem;
-      opacity: 0.9;
-      max-width: 600px;
-    }
-
-    .status {
-      background: rgba(255, 255, 255, 0.15);
-      padding: 0.5em 1em;
-      border-radius: 8px;
-      margin-top: 1em;
-      font-weight: 500;
-    }
-
-    footer {
-      position: absolute;
-      bottom: 15px;
-      font-size: 0.9rem;
-      opacity: 0.8;
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block;border-radius:12px}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    .nav{position:sticky;top:0;z-index:50;background:rgba(11,12,16,.7);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--border)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{display:flex;align-items:center;gap:.6rem;font-weight:800;letter-spacing:.4px}
+    .brand-dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2))}
+    .nav a{opacity:.9}
+    .nav-links{display:flex;gap:18px}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.1rem;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:white;font-weight:700;border:0;cursor:pointer;box-shadow:0 8px 24px rgba(124,58,237,.3)}
+    .btn.ghost{background:transparent;border:1px solid var(--border);color:var(--text);box-shadow:none}
+    .btn.small{padding:.55rem .9rem;border-radius:10px;font-weight:600}
+    .section{padding:72px 0;border-top:1px solid var(--border)}
+    .hero{padding:100px 0;background:radial-gradient(90% 80% at 50% -10%, rgba(124,58,237,.18), transparent 60%),radial-gradient(70% 60% at 110% 10%, rgba(34,211,238,.15), transparent 60%)}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
+    h1{font-size:48px;line-height:1.05;margin:0 0 16px}
+    h2{font-size:28px;margin:0 0 16px}
+    p.lead{font-size:18px;color:var(--muted);margin:0 0 22px}
+    .pill{display:inline-flex;gap:.5rem;align-items:center;padding:.35rem .6rem;border:1px solid var(--border);border-radius:999px;font-size:12px;color:var(--muted)}
+    .grid{display:grid;gap:18px}
+    .grid.cards{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .card{background:var(--card);border:1px solid var(--border);padding:18px 18px 20px;border-radius:16px}
+    .card h3{margin:12px 0 6px;font-size:18px}
+    .muted{color:var(--muted)}
+    .badge{font-size:11px;border:1px solid var(--border);color:var(--muted);padding:.25rem .5rem;border-radius:999px}
+    .work-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .work{position:relative;overflow:hidden;border-radius:16px;border:1px solid var(--border)}
+    .work .tag{position:absolute;left:10px;top:10px}
+    .work .overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.55),transparent 55%);opacity:0;transition:.3s}
+    .work:hover .overlay{opacity:1}
+    .work .caption{position:absolute;left:12px;bottom:10px;font-weight:700}
+    .cols{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .list{display:grid;gap:10px}
+    .list li{display:flex;gap:.6rem;align-items:flex-start}
+    .list li span{margin-top:.2rem}
+    .foot{padding:36px 0;border-top:1px solid var(--border);font-size:14px;color:var(--muted)}
+    .footer-grid{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center}
+    .hr{height:1px;background:var(--border);margin:28px 0}
+    form{display:grid;gap:12px}
+    input,textarea,select{background:#0e1016;border:1px solid var(--border);color:var(--text);padding:12px 14px;border-radius:12px;font:inherit}
+    label{font-size:13px;color:var(--muted)}
+    .inline{display:flex;gap:10px;flex-wrap:wrap}
+    .price{font-weight:800;font-size:22px}
+    @media (max-width: 900px){
+      .hero-grid,.grid.cards,.work-grid,.cols{grid-template-columns:1fr}
+      h1{font-size:36px}
     }
   </style>
 </head>
 <body>
-  <h1>✅ Domain Connected Successfully</h1>
-  <p>Your IONOS domain is now pointing to your GitHub Pages site!</p>
-  <div class="status">
-    <p>If you can see this page, your DNS and GitHub Pages setup is working.</p>
-  </div>
-  <footer>
-    Powered by GitHub Pages & IONOS
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="#" class="brand"><span class="brand-dot"></span>Amplify Creative Studios</a>
+      <nav class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#services">Services</a>
+        <a href="#studio">Studio</a>
+        <a href="#about">About</a>
+        <a href="#consult" class="btn small">Book Consultation</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="pill">DMV • Photo • Video • Full Production</span>
+        <h1>Visuals that move culture.<br/>Production that moves fast.</h1>
+        <p class="lead">We’re a creator‑led studio delivering photography, videography, and full‑service production. Clean process. Cinematic results. Built for brands, artists, and entrepreneurs.</p>
+        <div class="inline">
+          <a href="#consult" class="btn">Book Free Consultation</a>
+          <a href="#work" class="btn ghost">See Work</a>
+        </div>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?q=80&w=1600&auto=format&fit=crop" alt="Studio cameras and lights" />
+      </div>
+    </div>
+  </section>
+
+  <section id="work" class="section">
+    <div class="container">
+      <h2>Selected Work</h2>
+      <p class="muted">A quick peek at recent projects. Replace images and links with your own reels and galleries.</p>
+      <div class="work-grid" id="workGrid">
+        <a class="work" href="#" target="_blank" rel="noopener">
+          <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop" alt="Music video still"/>
+          <span class="badge tag">Music Video</span>
+          <span class="caption">Artist Visual — “City Lights”</span>
+          <div class="overlay"></div>
+        </a>
+        <a class="work" href="#" target="_blank" rel="noopener">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop" alt="Brand film"/>
+          <span class="badge tag">Brand</span>
+          <span class="caption">Brand Story — Nova Wellness</span>
+          <div class="overlay"></div>
+        </a>
+        <a class="work" href="#" target="_blank" rel="noopener">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop" alt="Product spot"/>
+          <span class="badge tag">Product</span>
+          <span class="caption">Launch Spot — Halo Audio</span>
+          <div class="overlay"></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="section">
+    <div class="container">
+      <h2>Services</h2>
+      <div class="grid cards">
+        <div class="card">
+          <span class="badge">Photo</span>
+          <h3>Photography</h3>
+          <p class="muted">Portrait, lifestyle, product, events, editorial. Professional lighting and refined color work.</p>
+        </div>
+        <div class="card">
+          <span class="badge">Video</span>
+          <h3>Videography</h3>
+          <p class="muted">Brand films, music videos, promos, social content, interviews, BTS. 4K capture, sound, and grade.</p>
+        </div>
+        <div class="card">
+          <span class="badge">End‑to‑End</span>
+          <h3>Full Production</h3>
+          <p class="muted">Concept → pre‑pro → hair & makeup → photo/video + BTS → editing, color grading, and delivery.</p>
+        </div>
+      </div>
+
+      <div class="hr"></div>
+
+      <div class="cols">
+        <div class="card">
+          <h3>Pre‑Production Add‑On</h3>
+          <ul class="list">
+            <li><span>🧠</span>Creative direction, concept & moodboards</li>
+            <li><span>📝</span>Script, storyboard, shot list</li>
+            <li><span>📍</span>Location scouting & permits</li>
+            <li><span>👗</span>Talent, wardrobe, and schedule</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Post‑Production</h3>
+          <ul class="list">
+            <li><span>🎞️</span>Editing & retouching</li>
+            <li><span>🎨</span>Color correction & grading</li>
+            <li><span>🔊</span>Sound design & mixing</li>
+            <li><span>📱</span>Deliverables in horizontal/vertical/social</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="studio" class="section">
+    <div class="container">
+      <h2>Studio Rental</h2>
+      <div class="cols">
+        <div>
+          <p class="muted">A creator‑ready space with cameras, lights, backdrops, audio, and props. Bring your team or hire ours.</p>
+          <ul class="list">
+            <li><span>🎥</span><b>Cameras:</b> 4K mirrorless/cinema bodies, portrait & wide lenses</li>
+            <li><span>💡</span><b>Lighting:</b> LED panels, strobes, softboxes, RGB, reflectors</li>
+            <li><span>🎨</span><b>Backdrops:</b> Seamless paper (multiple colors), fabric & textured</li>
+            <li><span>🪞</span><b>Props:</b> Stools, chairs, décor, full‑length mirror, vanity</li>
+            <li><span>🎚️</span><b>Audio:</b> Mics & small mixer available upon request</li>
+            <li><span>🧰</span><b>Grip:</b> C‑stands, tripods, gimbals, sliders</li>
+          </ul>
+          <p class="price">From $<span id="rate">85</span>/hr • Half‑day & full‑day rates available</p>
+          <div class="inline">
+            <a href="#consult" class="btn">Check Availability</a>
+            <a href="#policy" class="btn ghost">View Policy</a>
+          </div>
+        </div>
+        <div>
+          <img src="https://images.unsplash.com/photo-1523362628745-0c100150b504?q=80&w=1600&auto=format&fit=crop" alt="Studio space" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="container cols">
+      <div>
+        <h2>About Amplify</h2>
+        <p class="muted">Amplify Creative Studios is a production house and creative agency in the DMV. We help brands, artists, and entrepreneurs tell better stories through visuals — combining strategy, speed, and craft.</p>
+        <ul class="list">
+          <li><span>⚡</span>Creator‑led team; fast turnarounds</li>
+          <li><span>🎬</span>Photo, video, and full production under one roof</li>
+          <li><span>🤝</span>Clear communication, transparent pricing</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 id="policy">Studio Policy: No Free Sessions</h3>
+        <p class="muted">We love our friends and community — but our studio is a professional space. We don’t offer free or discounted sessions outside of approved collaborations. All bookings require full payment. Exceptions by written agreement only.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="consult" class="section">
+    <div class="container cols">
+      <div>
+        <h2>Book a Free Consultation</h2>
+        <p class="muted">Tell us about your project. We’ll reply with times to connect, or book you directly if you include your availability.</p>
+        <form id="contactForm" action="https://formspree.io/f/your-form-id" method="POST">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" placeholder="Your name" required />
+          </div>
+          <div class="cols" style="grid-template-columns:1fr 1fr;gap:12px">
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+            </div>
+            <div>
+              <label for="service">Service</label>
+              <select id="service" name="service">
+                <option>Photography</option>
+                <option>Videography</option>
+                <option>Full Production</option>
+                <option>Studio Rental</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label for="message">Project Details</label>
+            <textarea id="message" name="message" rows="5" placeholder="What are you creating? Goals, timeline, budget range?" required></textarea>
+          </div>
+          <div class="inline">
+            <button class="btn" type="submit">Send Inquiry</button>
+            <a class="btn ghost" href="mailto:hello@yourdomain.com?subject=Amplify%20Consultation">Email Instead</a>
+          </div>
+          <input type="hidden" name="_subject" value="New Inquiry — Amplify" />
+        </form>
+        <p class="muted" style="margin-top:8px;font-size:12px">Tip: Replace the Formspree action with your endpoint or Calendly link if preferred.</p>
+      </div>
+      <div class="card">
+        <h3>Quick Info</h3>
+        <ul class="list">
+          <li><span>📍</span>Based in DMV • Available for travel</li>
+          <li><span>⏱️</span>Typical turnaround: 3–7 business days</li>
+          <li><span>🧾</span>Invoices & contracts provided for all bookings</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="container footer-grid">
+      <div>© <span id="year"></span> Amplify Creative Studios. All rights reserved.</div>
+      <div class="inline"><a class="muted" href="#about">About</a><span class="muted">•</span><a class="muted" href="#consult">Contact</a></div>
+    </div>
   </footer>
+
+  <script>
+    // Simple helpers
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // If you don't use Formspree yet, block default submit to avoid 404 during testing
+    document.getElementById('contactForm')?.addEventListener('submit', function(e){
+      const action = this.getAttribute('action')||'';
+      if(action.includes('your-form-id')){
+        e.preventDefault();
+        alert('Form submitted! (Demo)\n\nReplace the form action with your Formspree ID or your backend endpoint.');
+      }
+    });
+  </script>
 </body>
 </html>
