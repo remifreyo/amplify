@@ -2,72 +2,146 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Amplify Creative Studios</title>
-  <meta name="description" content="Amplify Creative Studios — photography, videography, full‑production, and studio rental in the DMV." />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Amplify Creative Studios | Photography, Videography & Production in DMV</title>
+  <meta name="description" content="Amplify Creative Studios — professional photography, videography, full-production, and studio rental in the DMV. Creator-led team delivering cinematic results." />
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Amplify Creative Studios" />
+  <meta property="og:description" content="Professional photography, videography, and production services in the DMV area." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?q=80&w=1200&auto=format&fit=crop" />
+  
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  
   <style>
     :root{
-      --bg:#0b0c10; --card:#121318; --muted:#9aa3af; --text:#e5e7eb; --accent:#7c3aed; --accent-2:#22d3ee; --border:#1f2330;
+      --bg:#0b0c10;
+      --card:#121318;
+      --muted:#9aa3af;
+      --text:#e5e7eb;
+      --accent:#7c3aed;
+      --accent-2:#22d3ee;
+      --border:#1f2330;
+      --transition:0.3s ease;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block;border-radius:12px}
-    .container{max-width:1100px;margin:0 auto;padding:0 20px}
-    .nav{position:sticky;top:0;z-index:50;background:rgba(11,12,16,.7);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--border)}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
-    .brand{display:flex;align-items:center;gap:.6rem;font-weight:800;letter-spacing:.4px}
-    .brand-dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2))}
-    .nav a{opacity:.9}
-    .nav-links{display:flex;gap:18px}
-    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.1rem;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:white;font-weight:700;border:0;cursor:pointer;box-shadow:0 8px 24px rgba(124,58,237,.3)}
+    
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6;overflow-x:hidden}
+    a{color:inherit;text-decoration:none;transition:var(--transition)}
+    img{max-width:100%;height:auto;display:block;border-radius:12px}
+    ul{list-style:none}
+    
+    .container{max-width:1100px;margin:0 auto;padding:0 clamp(16px,4vw,20px)}
+    
+    .nav{position:sticky;top:0;z-index:100;background:rgba(11,12,16,.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border);transition:var(--transition)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;min-height:64px;padding:8px 0}
+    .brand{display:flex;align-items:center;gap:.6rem;font-weight:800;letter-spacing:.02em;font-size:clamp(.9rem,2.5vw,1rem);transition:var(--transition);white-space:nowrap}
+    .brand:hover{opacity:.8}
+    .brand-dot{width:10px;height:10px;flex-shrink:0;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2));animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}
+    
+    .nav-links{display:flex;gap:clamp(12px,2vw,24px);align-items:center}
+    .nav-links a{opacity:.9;font-size:.95rem;font-weight:500;padding:8px 12px;border-radius:8px;transition:var(--transition);white-space:nowrap}
+    .nav-links a:hover{opacity:1;background:rgba(255,255,255,.05)}
+    
+    .menu-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;z-index:101}
+    .menu-toggle span{width:24px;height:2px;background:var(--text);transition:var(--transition);border-radius:2px}
+    .menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+    .menu-toggle.active span:nth-child(2){opacity:0}
+    .menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(7px,-6px)}
+    
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.8rem 1.1rem;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:white;font-weight:700;border:0;cursor:pointer;box-shadow:0 8px 24px rgba(124,58,237,.3);transition:var(--transition);font-size:.95rem;text-align:center;min-height:44px}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(124,58,237,.4)}
+    .btn:active{transform:translateY(0)}
     .btn.ghost{background:transparent;border:1px solid var(--border);color:var(--text);box-shadow:none}
-    .btn.small{padding:.55rem .9rem;border-radius:10px;font-weight:600}
-    .section{padding:72px 0;border-top:1px solid var(--border)}
-    .hero{padding:100px 0;background:radial-gradient(90% 80% at 50% -10%, rgba(124,58,237,.18), transparent 60%),radial-gradient(70% 60% at 110% 10%, rgba(34,211,238,.15), transparent 60%)}
-    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
-    h1{font-size:48px;line-height:1.05;margin:0 0 16px}
-    h2{font-size:28px;margin:0 0 16px}
-    p.lead{font-size:18px;color:var(--muted);margin:0 0 22px}
-    .pill{display:inline-flex;gap:.5rem;align-items:center;padding:.35rem .6rem;border:1px solid var(--border);border-radius:999px;font-size:12px;color:var(--muted)}
-    .grid{display:grid;gap:18px}
-    .grid.cards{grid-template-columns:repeat(3,minmax(0,1fr))}
-    .card{background:var(--card);border:1px solid var(--border);padding:18px 18px 20px;border-radius:16px}
-    .card h3{margin:12px 0 6px;font-size:18px}
-    .muted{color:var(--muted)}
-    .badge{font-size:11px;border:1px solid var(--border);color:var(--muted);padding:.25rem .5rem;border-radius:999px}
-    .work-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-    .work{position:relative;overflow:hidden;border-radius:16px;border:1px solid var(--border)}
-    .work .tag{position:absolute;left:10px;top:10px}
-    .work .overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.55),transparent 55%);opacity:0;transition:.3s}
+    .btn.ghost:hover{background:rgba(255,255,255,.05);border-color:var(--accent)}
+    .btn.small{padding:.6rem .95rem;border-radius:10px;font-weight:600;font-size:.9rem}
+    
+    .section{padding:clamp(48px,10vw,72px) 0;border-top:1px solid var(--border)}
+    .hero{padding:clamp(60px,12vw,120px) 0;background:radial-gradient(90% 80% at 50% -10%,rgba(124,58,237,.18),transparent 60%),radial-gradient(70% 60% at 110% 10%,rgba(34,211,238,.15),transparent 60%);position:relative}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,5vw,48px);align-items:center}
+    
+    h1{font-size:clamp(32px,5vw,52px);line-height:1.1;margin:0 0 16px;font-weight:800;letter-spacing:-.02em}
+    h2{font-size:clamp(24px,4vw,32px);margin:0 0 16px;font-weight:700;letter-spacing:-.01em}
+    h3{font-size:clamp(18px,2.5vw,20px);margin:12px 0 8px;font-weight:600}
+    p.lead{font-size:clamp(16px,2vw,18px);color:var(--muted);margin:0 0 24px;line-height:1.6}
+    .muted{color:var(--muted);line-height:1.6}
+    
+    .pill{display:inline-flex;gap:.5rem;align-items:center;padding:.4rem .75rem;border:1px solid var(--border);border-radius:999px;font-size:.85rem;color:var(--muted);margin-bottom:16px;background:rgba(255,255,255,.02);flex-wrap:wrap}
+    .badge{font-size:.75rem;border:1px solid var(--border);color:var(--muted);padding:.3rem .6rem;border-radius:999px;font-weight:500;background:rgba(255,255,255,.02);display:inline-block}
+    
+    .grid{display:grid;gap:clamp(16px,3vw,20px)}
+    .grid.cards{grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr))}
+    .card{background:var(--card);border:1px solid var(--border);padding:clamp(16px,4vw,20px);border-radius:16px;transition:var(--transition)}
+    .card:hover{border-color:rgba(124,58,237,.4);transform:translateY(-2px)}
+    
+    .work-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:clamp(16px,3vw,20px)}
+    .work{position:relative;overflow:hidden;border-radius:16px;border:1px solid var(--border);transition:var(--transition);aspect-ratio:4/3}
+    .work img{width:100%;height:100%;object-fit:cover}
+    .work .tag{position:absolute;left:12px;top:12px;z-index:2}
+    .work .overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65),transparent 55%);opacity:0;transition:var(--transition);z-index:1}
     .work:hover .overlay{opacity:1}
-    .work .caption{position:absolute;left:12px;bottom:10px;font-weight:700}
-    .cols{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-    .list{display:grid;gap:10px}
-    .list li{display:flex;gap:.6rem;align-items:flex-start}
-    .list li span{margin-top:.2rem}
-    .foot{padding:36px 0;border-top:1px solid var(--border);font-size:14px;color:var(--muted)}
-    .footer-grid{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center}
-    .hr{height:1px;background:var(--border);margin:28px 0}
-    form{display:grid;gap:12px}
-    input,textarea,select{background:#0e1016;border:1px solid var(--border);color:var(--text);padding:12px 14px;border-radius:12px;font:inherit}
-    label{font-size:13px;color:var(--muted)}
-    .inline{display:flex;gap:10px;flex-wrap:wrap}
-    .price{font-weight:800;font-size:22px}
-    @media (max-width: 900px){
-      .hero-grid,.grid.cards,.work-grid,.cols{grid-template-columns:1fr}
-      h1{font-size:36px}
+    .work .caption{position:absolute;left:12px;bottom:12px;font-weight:700;z-index:2;font-size:clamp(.9rem,2vw,1rem)}
+    
+    .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:clamp(20px,4vw,28px);align-items:start}
+    .list{display:grid;gap:12px;margin:12px 0}
+    .list li{display:flex;gap:.7rem;align-items:flex-start}
+    .list li span:first-child{margin-top:.15rem;flex-shrink:0}
+    
+    .foot{padding:clamp(24px,5vw,36px) 0;border-top:1px solid var(--border);font-size:14px;color:var(--muted)}
+    .footer-grid{display:grid;grid-template-columns:1fr;gap:16px;text-align:center}
+    .hr{height:1px;background:var(--border);margin:clamp(24px,5vw,32px) 0}
+    
+    form{display:grid;gap:14px}
+    input,textarea,select{background:#0e1016;border:1px solid var(--border);color:var(--text);padding:12px 14px;border-radius:12px;font:inherit;width:100%;transition:var(--transition);font-size:15px}
+    input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(124,58,237,.1)}
+    label{font-size:13px;color:var(--muted);font-weight:500;display:block;margin-bottom:4px}
+    .inline{display:flex;gap:clamp(8px,2vw,12px);flex-wrap:wrap}
+    .price{font-weight:800;font-size:clamp(20px,4vw,24px);color:var(--accent-2);margin:16px 0}
+    
+    @media (max-width:768px){
+      .hero-grid{grid-template-columns:1fr;gap:32px}
+      .hero-grid>div:last-child{order:-1}
+      .nav-links{position:fixed;top:64px;left:0;right:0;background:rgba(11,12,16,.98);backdrop-filter:blur(20px);flex-direction:column;padding:24px;gap:8px;transform:translateX(-100%);transition:var(--transition);border-bottom:1px solid var(--border)}
+      .nav-links.active{transform:translateX(0)}
+      .nav-links a{width:100%;padding:12px;font-size:1rem}
+      .menu-toggle{display:flex}
+      .footer-grid{grid-template-columns:1fr;text-align:center}
+      .brand-text{display:none}
+    }
+    
+    @media (max-width:480px){
+      .container{padding:0 16px}
+      h1{font-size:28px}
+      .pill{font-size:.8rem;padding:.35rem .65rem}
+      .work{aspect-ratio:1}
+      .cols[style*="grid-template-columns"]{grid-template-columns:1fr!important}
+    }
+    
+    @media (hover:hover){
+      .card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(124,58,237,.15)}
+      .work:hover{transform:scale(1.02)}
     }
   </style>
 </head>
 <body>
   <header class="nav">
     <div class="container nav-inner">
-      <a href="#" class="brand"><span class="brand-dot"></span>Amplify Creative Studios</a>
-      <nav class="nav-links">
+      <a href="#" class="brand">
+        <span class="brand-dot"></span>
+        Amplify<span class="brand-text"> Creative Studios</span>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle menu" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav-links" id="navLinks">
         <a href="#work">Work</a>
         <a href="#services">Services</a>
         <a href="#studio">Studio</a>
@@ -80,16 +154,16 @@
   <section class="hero">
     <div class="container hero-grid">
       <div>
-        <span class="pill">DMV • Photo • Video • Full Production</span>
+        <span class="pill">📍 DMV • 📸 Photo • 🎥 Video • 🎬 Full Production</span>
         <h1>Visuals that move culture.<br/>Production that moves fast.</h1>
-        <p class="lead">We’re a creator‑led studio delivering photography, videography, and full‑service production. Clean process. Cinematic results. Built for brands, artists, and entrepreneurs.</p>
+        <p class="lead">We're a creator‑led studio delivering photography, videography, and full‑service production. Clean process. Cinematic results. Built for brands, artists, and entrepreneurs.</p>
         <div class="inline">
           <a href="#consult" class="btn">Book Free Consultation</a>
           <a href="#work" class="btn ghost">See Work</a>
         </div>
       </div>
       <div>
-        <img src="https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?q=80&w=1600&auto=format&fit=crop" alt="Studio cameras and lights" />
+        <img src="https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?q=80&w=1600&auto=format&fit=crop" alt="Professional studio cameras and lighting equipment" loading="lazy" />
       </div>
     </div>
   </section>
@@ -98,21 +172,21 @@
     <div class="container">
       <h2>Selected Work</h2>
       <p class="muted">A quick peek at recent projects. Replace images and links with your own reels and galleries.</p>
-      <div class="work-grid" id="workGrid">
-        <a class="work" href="#" target="_blank" rel="noopener">
-          <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop" alt="Music video still"/>
+      <div class="work-grid">
+        <a class="work" href="#" target="_blank" rel="noopener noreferrer" aria-label="Music Video: Artist Visual — City Lights">
+          <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop" alt="Music video still showcasing city lights" loading="lazy" />
           <span class="badge tag">Music Video</span>
-          <span class="caption">Artist Visual — “City Lights”</span>
+          <span class="caption">Artist Visual — "City Lights"</span>
           <div class="overlay"></div>
         </a>
-        <a class="work" href="#" target="_blank" rel="noopener">
-          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop" alt="Brand film"/>
+        <a class="work" href="#" target="_blank" rel="noopener noreferrer" aria-label="Brand Film: Nova Wellness">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop" alt="Brand film for Nova Wellness" loading="lazy" />
           <span class="badge tag">Brand</span>
           <span class="caption">Brand Story — Nova Wellness</span>
           <div class="overlay"></div>
         </a>
-        <a class="work" href="#" target="_blank" rel="noopener">
-          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop" alt="Product spot"/>
+        <a class="work" href="#" target="_blank" rel="noopener noreferrer" aria-label="Product Spot: Halo Audio">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop" alt="Product launch spot for Halo Audio" loading="lazy" />
           <span class="badge tag">Product</span>
           <span class="caption">Launch Spot — Halo Audio</span>
           <div class="overlay"></div>
@@ -126,17 +200,17 @@
       <h2>Services</h2>
       <div class="grid cards">
         <div class="card">
-          <span class="badge">Photo</span>
+          <span class="badge">📸 Photo</span>
           <h3>Photography</h3>
           <p class="muted">Portrait, lifestyle, product, events, editorial. Professional lighting and refined color work.</p>
         </div>
         <div class="card">
-          <span class="badge">Video</span>
+          <span class="badge">🎥 Video</span>
           <h3>Videography</h3>
           <p class="muted">Brand films, music videos, promos, social content, interviews, BTS. 4K capture, sound, and grade.</p>
         </div>
         <div class="card">
-          <span class="badge">End‑to‑End</span>
+          <span class="badge">🎬 End‑to‑End</span>
           <h3>Full Production</h3>
           <p class="muted">Concept → pre‑pro → hair & makeup → photo/video + BTS → editing, color grading, and delivery.</p>
         </div>
@@ -148,19 +222,19 @@
         <div class="card">
           <h3>Pre‑Production Add‑On</h3>
           <ul class="list">
-            <li><span>🧠</span>Creative direction, concept & moodboards</li>
-            <li><span>📝</span>Script, storyboard, shot list</li>
-            <li><span>📍</span>Location scouting & permits</li>
-            <li><span>👗</span>Talent, wardrobe, and schedule</li>
+            <li><span>🧠</span><span>Creative direction, concept & moodboards</span></li>
+            <li><span>📝</span><span>Script, storyboard, shot list</span></li>
+            <li><span>📍</span><span>Location scouting & permits</span></li>
+            <li><span>👗</span><span>Talent, wardrobe, and schedule</span></li>
           </ul>
         </div>
         <div class="card">
           <h3>Post‑Production</h3>
           <ul class="list">
-            <li><span>🎞️</span>Editing & retouching</li>
-            <li><span>🎨</span>Color correction & grading</li>
-            <li><span>🔊</span>Sound design & mixing</li>
-            <li><span>📱</span>Deliverables in horizontal/vertical/social</li>
+            <li><span>🎞️</span><span>Editing & retouching</span></li>
+            <li><span>🎨</span><span>Color correction & grading</span></li>
+            <li><span>🔊</span><span>Sound design & mixing</span></li>
+            <li><span>📱</span><span>Deliverables in horizontal/vertical/social</span></li>
           </ul>
         </div>
       </div>
@@ -174,12 +248,12 @@
         <div>
           <p class="muted">A creator‑ready space with cameras, lights, backdrops, audio, and props. Bring your team or hire ours.</p>
           <ul class="list">
-            <li><span>🎥</span><b>Cameras:</b> 4K mirrorless/cinema bodies, portrait & wide lenses</li>
-            <li><span>💡</span><b>Lighting:</b> LED panels, strobes, softboxes, RGB, reflectors</li>
-            <li><span>🎨</span><b>Backdrops:</b> Seamless paper (multiple colors), fabric & textured</li>
-            <li><span>🪞</span><b>Props:</b> Stools, chairs, décor, full‑length mirror, vanity</li>
-            <li><span>🎚️</span><b>Audio:</b> Mics & small mixer available upon request</li>
-            <li><span>🧰</span><b>Grip:</b> C‑stands, tripods, gimbals, sliders</li>
+            <li><span>🎥</span><span><b>Cameras:</b> 4K mirrorless/cinema bodies, portrait & wide lenses</span></li>
+            <li><span>💡</span><span><b>Lighting:</b> LED panels, strobes, softboxes, RGB, reflectors</span></li>
+            <li><span>🎨</span><span><b>Backdrops:</b> Seamless paper (multiple colors), fabric & textured</span></li>
+            <li><span>🪞</span><span><b>Props:</b> Stools, chairs, décor, full‑length mirror, vanity</span></li>
+            <li><span>🎚️</span><span><b>Audio:</b> Mics & small mixer available upon request</span></li>
+            <li><span>🧰</span><span><b>Grip:</b> C‑stands, tripods, gimbals, sliders</span></li>
           </ul>
           <p class="price">From $<span id="rate">85</span>/hr • Half‑day & full‑day rates available</p>
           <div class="inline">
@@ -188,7 +262,7 @@
           </div>
         </div>
         <div>
-          <img src="https://images.unsplash.com/photo-1523362628745-0c100150b504?q=80&w=1600&auto=format&fit=crop" alt="Studio space" />
+          <img src="https://images.unsplash.com/photo-1523362628745-0c100150b504?q=80&w=1600&auto=format&fit=crop" alt="Professional studio space with lighting and equipment" loading="lazy" />
         </div>
       </div>
     </div>
@@ -200,14 +274,14 @@
         <h2>About Amplify</h2>
         <p class="muted">Amplify Creative Studios is a production house and creative agency in the DMV. We help brands, artists, and entrepreneurs tell better stories through visuals — combining strategy, speed, and craft.</p>
         <ul class="list">
-          <li><span>⚡</span>Creator‑led team; fast turnarounds</li>
-          <li><span>🎬</span>Photo, video, and full production under one roof</li>
-          <li><span>🤝</span>Clear communication, transparent pricing</li>
+          <li><span>⚡</span><span>Creator‑led team; fast turnarounds</span></li>
+          <li><span>🎬</span><span>Photo, video, and full production under one roof</span></li>
+          <li><span>🤝</span><span>Clear communication, transparent pricing</span></li>
         </ul>
       </div>
       <div class="card">
         <h3 id="policy">Studio Policy: No Free Sessions</h3>
-        <p class="muted">We love our friends and community — but our studio is a professional space. We don’t offer free or discounted sessions outside of approved collaborations. All bookings require full payment. Exceptions by written agreement only.</p>
+        <p class="muted">We love our friends and community — but our studio is a professional space. We don't offer free or discounted sessions outside of approved collaborations. All bookings require full payment. Exceptions by written agreement only.</p>
       </div>
     </div>
   </section>
@@ -216,13 +290,13 @@
     <div class="container cols">
       <div>
         <h2>Book a Free Consultation</h2>
-        <p class="muted">Tell us about your project. We’ll reply with times to connect, or book you directly if you include your availability.</p>
+        <p class="muted">Tell us about your project. We'll reply with times to connect, or book you directly if you include your availability.</p>
         <form id="contactForm" action="https://formspree.io/f/your-form-id" method="POST">
           <div>
             <label for="name">Name</label>
             <input id="name" name="name" placeholder="Your name" required />
           </div>
-          <div class="cols" style="grid-template-columns:1fr 1fr;gap:12px">
+          <div class="cols" style="grid-template-columns:1fr 1fr;gap:14px">
             <div>
               <label for="email">Email</label>
               <input id="email" name="email" type="email" placeholder="you@example.com" required />
@@ -247,14 +321,14 @@
           </div>
           <input type="hidden" name="_subject" value="New Inquiry — Amplify" />
         </form>
-        <p class="muted" style="margin-top:8px;font-size:12px">Tip: Replace the Formspree action with your endpoint or Calendly link if preferred.</p>
+        <p class="muted" style="margin-top:12px;font-size:12px">Tip: Replace the Formspree action with your endpoint or Calendly link if preferred.</p>
       </div>
       <div class="card">
         <h3>Quick Info</h3>
         <ul class="list">
-          <li><span>📍</span>Based in DMV • Available for travel</li>
-          <li><span>⏱️</span>Typical turnaround: 3–7 business days</li>
-          <li><span>🧾</span>Invoices & contracts provided for all bookings</li>
+          <li><span>📍</span><span>Based in DMV • Available for travel</span></li>
+          <li><span>⏱️</span><span>Typical turnaround: 3–7 business days</span></li>
+          <li><span>🧾</span><span>Invoices & contracts provided for all bookings</span></li>
         </ul>
       </div>
     </div>
@@ -263,21 +337,60 @@
   <footer class="foot">
     <div class="container footer-grid">
       <div>© <span id="year"></span> Amplify Creative Studios. All rights reserved.</div>
-      <div class="inline"><a class="muted" href="#about">About</a><span class="muted">•</span><a class="muted" href="#consult">Contact</a></div>
+      <div class="inline"><a class="muted" href="#about">About</a><span class="muted"> • </span><a class="muted" href="#consult">Contact</a></div>
     </div>
   </footer>
 
   <script>
-    // Simple helpers
+    // Update year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // If you don't use Formspree yet, block default submit to avoid 404 during testing
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    
+    menuToggle?.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking a link
+    navLinks?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle?.classList.remove('active');
+        navLinks?.classList.remove('active');
+      });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-inner')) {
+        menuToggle?.classList.remove('active');
+        navLinks?.classList.remove('active');
+      }
+    });
+
+    // Form submission handler
     document.getElementById('contactForm')?.addEventListener('submit', function(e){
       const action = this.getAttribute('action')||'';
       if(action.includes('your-form-id')){
         e.preventDefault();
         alert('Form submitted! (Demo)\n\nReplace the form action with your Formspree ID or your backend endpoint.');
       }
+    });
+
+    // Add smooth scroll behavior for better UX
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && document.querySelector(href)) {
+          e.preventDefault();
+          document.querySelector(href).scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
     });
   </script>
 </body>
