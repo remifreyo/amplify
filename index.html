@@ -343,6 +343,15 @@
     .service-card:hover::before{opacity:1}
     .service-icon{font-size:2.5rem;margin-bottom:16px;display:block}
     
+    /* Collapsible/Accordion Styles */
+    .accordion-header{cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:var(--transition);user-select:none}
+    .accordion-header:hover{background:rgba(255,255,255,.03)}
+    .accordion-icon{font-size:20px;font-weight:700;transition:transform 0.3s ease;color:var(--accent)}
+    .accordion-icon.active{transform:rotate(180deg)}
+    .accordion-content{max-height:0;overflow:hidden;transition:max-height 0.5s ease}
+    .accordion-content.active{max-height:3000px}
+    .accordion-body{padding:0}
+    
     /* Process Grid - 5 columns on desktop, responsive on smaller screens */
     .process-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
     
@@ -510,7 +519,7 @@
       
         <div class="cols">
         <div>
-          <form id="contactForm" action="https://formspree.io/f/your-form-id" method="POST">
+          <form id="contactForm" action="https://formspree.io/f/mwpakkjg" method="POST">
             <div>
               <label for="name">Name</label>
               <input id="name" name="name" placeholder="Your name" required />
@@ -532,6 +541,66 @@
                   <option>Brand & Marketing</option>
                   <option>Studio Rental</option>
                 </select>
+              </div>
+            </div>
+            <div>
+              <label for="consultation-date">Preferred Date 📅</label>
+              <input id="consultation-date" name="consultation_date" type="date" required />
+            </div>
+            <div>
+              <label style="font-size:13px;font-weight:500;display:block;margin-bottom:8px">Preferred Times (Select 3 options) ⏰</label>
+              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+                <div>
+                  <label for="time-1" style="font-size:11px;color:var(--accent)">1st Choice</label>
+                  <select id="time-1" name="consultation_time_1" required>
+                    <option value="">Time</option>
+                    <option value="09:00 AM">9:00 AM</option>
+                    <option value="10:00 AM">10:00 AM</option>
+                    <option value="11:00 AM">11:00 AM</option>
+                    <option value="12:00 PM">12:00 PM</option>
+                    <option value="01:00 PM">1:00 PM</option>
+                    <option value="02:00 PM">2:00 PM</option>
+                    <option value="03:00 PM">3:00 PM</option>
+                    <option value="04:00 PM">4:00 PM</option>
+                    <option value="05:00 PM">5:00 PM</option>
+                    <option value="06:00 PM">6:00 PM</option>
+                    <option value="07:00 PM">7:00 PM</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="time-2" style="font-size:11px;color:var(--accent)">2nd Choice</label>
+                  <select id="time-2" name="consultation_time_2" required>
+                    <option value="">Time</option>
+                    <option value="09:00 AM">9:00 AM</option>
+                    <option value="10:00 AM">10:00 AM</option>
+                    <option value="11:00 AM">11:00 AM</option>
+                    <option value="12:00 PM">12:00 PM</option>
+                    <option value="01:00 PM">1:00 PM</option>
+                    <option value="02:00 PM">2:00 PM</option>
+                    <option value="03:00 PM">3:00 PM</option>
+                    <option value="04:00 PM">4:00 PM</option>
+                    <option value="05:00 PM">5:00 PM</option>
+                    <option value="06:00 PM">6:00 PM</option>
+                    <option value="07:00 PM">7:00 PM</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="time-3" style="font-size:11px;color:var(--accent)">3rd Choice</label>
+                  <select id="time-3" name="consultation_time_3" required>
+                    <option value="">Time</option>
+                    <option value="09:00 AM">9:00 AM</option>
+                    <option value="10:00 AM">10:00 AM</option>
+                    <option value="11:00 AM">11:00 AM</option>
+                    <option value="12:00 PM">12:00 PM</option>
+                    <option value="01:00 PM">1:00 PM</option>
+                    <option value="02:00 PM">2:00 PM</option>
+                    <option value="03:00 PM">3:00 PM</option>
+                    <option value="04:00 PM">4:00 PM</option>
+                    <option value="05:00 PM">5:00 PM</option>
+                    <option value="06:00 PM">6:00 PM</option>
+                    <option value="07:00 PM">7:00 PM</option>
+                  </select>
+                </div>
               </div>
             </div>
             <div>
@@ -691,15 +760,15 @@
   </section>
 
   <!-- Social Proof Section -->
-  <section class="section" style="background:linear-gradient(135deg,rgba(196,88,241,0.08),rgba(116,209,234,0.08)),url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><defs><pattern id=%22p%22 width=%2220%22 height=%2220%22 patternUnits=%22userSpaceOnUse%22><circle cx=%2210%22 cy=%2210%22 r=%221%22 fill=%22%2374D1EA%22 opacity=%220.1%22/></pattern></defs><rect width=%22100%22 height=%22100%22 fill=%22url(%23p)%22/></svg>');background-size:100%,30px">
+  <!-- <section class="section" style="background:linear-gradient(135deg,rgba(196,88,241,0.08),rgba(116,209,234,0.08)),url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><defs><pattern id=%22p%22 width=%2220%22 height=%2220%22 patternUnits=%22userSpaceOnUse%22><circle cx=%2210%22 cy=%2210%22 r=%221%22 fill=%22%2374D1EA%22 opacity=%220.1%22/></pattern></defs><rect width=%22100%22 height=%22100%22 fill=%22url(%23p)%22/></svg>');background-size:100%,30px">
     <div class="container">
       <div style="text-align:center;max-width:700px;margin:0 auto 48px">
         <h2>Trusted by Creators & Brands</h2>
         <p class="muted">Real results from real clients. See what we've helped bring to life.</p>
-      </div>
+      </div> -->
 
       <!-- Results Metrics -->
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:24px;margin-bottom:48px">
+      <!-- <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:24px;margin-bottom:48px">
         <div class="card" style="text-align:center;padding:32px 24px">
           <div style="font-size:clamp(32px,5vw,48px);font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent-2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px">500+</div>
           <p class="muted" style="margin:0;font-size:14px">Projects Delivered</p>
@@ -716,10 +785,10 @@
           <div style="font-size:clamp(32px,5vw,48px);font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent-2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px">50+</div>
           <p class="muted" style="margin:0;font-size:14px">Brands Served</p>
         </div>
-      </div>
+      </div> -->
 
       <!-- Testimonials -->
-      <h3 style="text-align:center;margin-bottom:32px">What Clients Say</h3>
+      <!-- <h3 style="text-align:center;margin-bottom:32px">What Clients Say</h3>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:24px;margin-bottom:48px">
         <div class="card" style="border-left:4px solid var(--accent)">
           <p style="font-size:16px;line-height:1.6;margin-bottom:16px">"Amplify transformed our brand launch. The quality exceeded expectations and the turnaround was incredibly fast. Highly recommend!"</p>
@@ -753,10 +822,10 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- Partner Logos Placeholder -->
-      <div style="text-align:center">
+      <!-- <div style="text-align:center">
         <p class="muted" style="font-size:14px;margin-bottom:24px">Trusted by brands and creators</p>
         <div style="display:flex;gap:32px;justify-content:center;align-items:center;flex-wrap:wrap;opacity:0.6">
           <div style="padding:12px 24px;border:1px solid var(--border);border-radius:8px;font-weight:600;font-size:14px">Brand Logo</div>
@@ -767,7 +836,7 @@
         <p class="muted" style="font-size:12px;margin-top:16px">Replace these placeholders with actual client/partner logos</p>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- Process Section - Compact Version -->
   <section id="process" class="section" style="background:linear-gradient(135deg,rgba(116,209,234,0.06) 0%,rgba(196,88,241,0.06) 50%,rgba(116,209,234,0.06) 100%)">
@@ -861,10 +930,6 @@
               <div class="carousel-caption">Professional cinema cameras and lenses</div>
             </div>
             <div class="carousel-slide">
-              <img src="https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?q=80&w=1600&auto=format&fit=crop" alt="Studio grip equipment" />
-              <div class="carousel-caption">Complete grip package with C-stands and modifiers</div>
-            </div>
-            <div class="carousel-slide">
               <img src="photo3.jpg" alt="Studio overview" />
               <div class="carousel-caption">Spacious layout perfect for any production</div>
             </div>
@@ -906,8 +971,8 @@
               <img src="photo11.jpg" alt="Podcast and editing station" loading="lazy" />
             </div>
             <div class="amenity-content">
-              <h4>🎙️ Podcast Suite</h4>
-              <p class="muted">Soundproof recording booth with professional microphones, pop filters, and acoust treatment for crystal-clear audio.</p>
+              <h4>🎙️ Editing Suite</h4>
+              <p class="muted">Professional editing suite with industry grade software available including Final Cut Pro, Davinci, and Adobe Premiere.</p>
             </div>
           </div>
         </div>
@@ -919,37 +984,52 @@
       <h3>Studio Add-Ons & Equipment Rentals</h3>
       <p class="muted" style="margin-bottom:24px">Enhance your session with additional equipment, services, or host your own event in our space.</p>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:24px;margin-bottom:32px">
-        <div class="card">
-          <h4>📹 Equipment Rentals</h4>
-          <p class="muted" style="font-size:14px;margin-bottom:12px">Rent premium gear for your own productions</p>
-          <ul class="list" style="font-size:14px">
-            <li><span>•</span><span>Cinema cameras & lenses</span></li>
-            <li><span>•</span><span>Professional lighting kits</span></li>
-            <li><span>•</span><span>Audio recording equipment</span></li>
-            <li><span>•</span><span>Gimbals & stabilizers</span></li>
-          </ul>
+        <div class="card" style="padding:0;overflow:hidden">
+          <div style="aspect-ratio:16/9;overflow:hidden">
+            <img src="https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?q=80&w=800&auto=format&fit=crop" alt="Professional camera equipment and gear" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:0;margin:0" />
+          </div>
+          <div style="padding:20px">
+            <h4>📹 Equipment Rentals</h4>
+            <p class="muted" style="font-size:14px;margin-bottom:12px">Rent premium gear for your own productions</p>
+            <ul class="list" style="font-size:14px">
+              <li><span>•</span><span>Cinema cameras & lenses</span></li>
+              <li><span>•</span><span>Professional lighting kits</span></li>
+              <li><span>•</span><span>Audio recording equipment</span></li>
+              <li><span>•</span><span>Gimbals & stabilizers</span></li>
+            </ul>
+          </div>
         </div>
 
-        <div class="card">
-          <h4>🎓 Workshops & Training</h4>
-          <p class="muted" style="font-size:14px;margin-bottom:12px">Learn from industry professionals</p>
-          <ul class="list" style="font-size:14px">
-            <li><span>•</span><span>Photography workshops</span></li>
-            <li><span>•</span><span>Video production classes</span></li>
-            <li><span>•</span><span>Audio engineering basics</span></li>
-            <li><span>•</span><span>Content creation strategy</span></li>
-          </ul>
+        <div class="card" style="padding:0;overflow:hidden">
+          <div style="aspect-ratio:16/9;overflow:hidden">
+            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=800&auto=format&fit=crop" alt="Workshop and training session" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:0;margin:0" />
+          </div>
+          <div style="padding:20px">
+            <h4>🎓 Workshops & Training</h4>
+            <p class="muted" style="font-size:14px;margin-bottom:12px">Learn from industry professionals</p>
+            <ul class="list" style="font-size:14px">
+              <li><span>•</span><span>Photography workshops</span></li>
+              <li><span>•</span><span>Video production classes</span></li>
+              <li><span>•</span><span>Audio engineering basics</span></li>
+              <li><span>•</span><span>Content creation strategy</span></li>
+            </ul>
+          </div>
         </div>
 
-        <div class="card">
-          <h4>🎉 Private Events</h4>
-          <p class="muted" style="font-size:14px;margin-bottom:12px">Host your creative event in our studio</p>
-          <ul class="list" style="font-size:14px">
-            <li><span>•</span><span>Product launch parties</span></li>
-            <li><span>•</span><span>Album listening sessions</span></li>
-            <li><span>•</span><span>Networking events</span></li>
-            <li><span>•</span><span>Private screenings</span></li>
-          </ul>
+        <div class="card" style="padding:0;overflow:hidden">
+          <div style="aspect-ratio:16/9;overflow:hidden">
+            <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=800&auto=format&fit=crop" alt="Private event in studio space" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:0;margin:0" />
+          </div>
+          <div style="padding:20px">
+            <h4>🎉 Private Events</h4>
+            <p class="muted" style="font-size:14px;margin-bottom:12px">Host your creative event in our studio</p>
+            <ul class="list" style="font-size:14px">
+              <li><span>•</span><span>Product launch parties</span></li>
+              <li><span>•</span><span>Album listening sessions</span></li>
+              <li><span>•</span><span>Networking events</span></li>
+              <li><span>•</span><span>Private screenings</span></li>
+            </ul>
+          </div>
         </div>
       </div>
       <div style="text-align:center">
@@ -959,7 +1039,7 @@
       <div class="hr"></div>
 
       <!-- Music Production & Podcast Rooms Detail -->
-      <h3>Music Production & Recording Rooms</h3>
+      <!-- <h3>Music Production & Recording Rooms</h3>
       <p class="muted" style="margin-bottom:24px">Industry-standard recording facilities with professional equipment and acoustic treatment.</p>
       <div class="cols">
         <div class="card">
@@ -989,48 +1069,7 @@
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- Cancellation Policy Section - Condensed -->
-  <section id="cancellation-policy" class="section" style="background:rgba(124,58,237,0.03)">
-    <div class="container" style="max-width:1100px">
-      <h2>Cancellation & Booking Policy</h2>
-      <p class="muted" style="margin-bottom:24px">Professional terms to ensure a smooth experience for everyone. Review before booking.</p>
-      
-      <div class="cols">
-        <div class="card">
-          <h4>💰 Deposits & Payment</h4>
-          <ul class="list">
-            <li><span>•</span><span>50% non-refundable deposit required</span></li>
-            <li><span>•</span><span>Balance due 48 hours before session</span></li>
-            <li><span>•</span><span>Multiple payment methods accepted</span></li>
-          </ul>
-        </div>
-        
-        <div class="card">
-          <h4>🚫 Cancellation Terms</h4>
-          <ul class="list">
-            <li><span>•</span><span>7+ days: Transfer to new date (one time)</span></li>
-            <li><span>•</span><span>&lt;7 days: Deposit forfeited</span></li>
-            <li><span>•</span><span>No-show: Full fee charged</span></li>
-          </ul>
-        </div>
-        
-        <div class="card">
-          <h4>📋 What's Included</h4>
-          <ul class="list">
-            <li><span>•</span><span>Professional contract & consultation</span></li>
-            <li><span>•</span><span>2 rounds of revisions</span></li>
-            <li><span>•</span><span>Full commercial usage rights</span></li>
-          </ul>
-        </div>
-      </div>
-      
-      <div style="margin-top:24px;text-align:center">
-        <p class="muted" style="font-size:14px">Questions? <a href="#consult" style="text-decoration:underline;color:var(--accent-2)">Contact us</a> for clarification before booking.</p>
-      </div>
-    </div>
-  </section>
+  </section> -->
 
   <section id="about" class="section">
     <div class="container cols">
@@ -1051,68 +1090,119 @@
     </div>
   </section>
 
-  <!-- FAQ Section -->
-  <section id="faq" class="section">
+  <!-- Cancellation Policy Section - Fully Collapsible -->
+  <section id="cancellation-policy" class="section">
     <div class="container">
-      <h2>Frequently Asked Questions</h2>
-      <p class="muted" style="margin-bottom:32px">Got questions? We've got answers. If you don't see what you're looking for, reach out to us directly.</p>
-      
-      <div class="cols">
-        <div>
-          <div class="card" style="margin-bottom:20px">
-            <h4>📅 What's your booking process?</h4>
-            <p class="muted">Book a free consultation, we discuss your project, provide a quote, you approve and pay the deposit (usually 50%), we schedule your session, deliver your files within 3-7 days.</p>
+      <div class="accordion-header" onclick="toggleSectionAccordion(this)" style="padding:0 0 24px 0">
+        <h2 style="margin:0;font-size:clamp(24px,4vw,32px)">Cancellation & Booking Policy</h2>
+        <span class="accordion-icon" style="font-size:24px">▼</span>
+      </div>
+      <div class="accordion-content">
+        <div class="accordion-body" style="padding:0">
+          <p class="muted" style="margin-bottom:24px">Professional terms to ensure a smooth experience for everyone. Review before booking.</p>
+          
+          <div class="cols">
+            <div class="card">
+              <h4>💰 Deposits & Payment</h4>
+              <ul class="list">
+                <li><span>•</span><span>50% non-refundable deposit required</span></li>
+                <li><span>•</span><span>Balance due 48 hours before session</span></li>
+                <li><span>•</span><span>Multiple payment methods accepted</span></li>
+              </ul>
+            </div>
+            
+            <div class="card">
+              <h4>🚫 Cancellation Terms</h4>
+              <ul class="list">
+                <li><span>•</span><span>7+ days: Transfer to new date (one time)</span></li>
+                <li><span>•</span><span>&lt;7 days: Deposit forfeited</span></li>
+                <li><span>•</span><span>No-show: Full fee charged</span></li>
+              </ul>
+            </div>
+            
+            <div class="card">
+              <h4>📋 What's Included</h4>
+              <ul class="list">
+                <li><span>•</span><span>Professional contract & consultation</span></li>
+                <li><span>•</span><span>2 rounds of revisions</span></li>
+                <li><span>•</span><span>Full commercial usage rights</span></li>
+              </ul>
+            </div>
           </div>
           
-          <div class="card" style="margin-bottom:20px">
-            <h4>💰 What are your rates?</h4>
-            <p class="muted">Rates vary by service type and project scope. Studio rental starts at $85/hr. Full production packages start around $500. Contact us for a custom quote based on your needs.</p>
-          </div>
-          
-          <div class="card" style="margin-bottom:20px">
-            <h4>📸 Do you provide raw files?</h4>
-            <p class="muted">We deliver fully edited, high-resolution files. Raw files are available for an additional fee. All deliverables include usage rights for your business purposes.</p>
-          </div>
-
-          <div class="card" style="margin-bottom:20px">
-            <h4>🎙️ Can I record a podcast remotely?</h4>
-            <p class="muted">Yes! We offer remote podcast recording with our engineers. We can also help you set up remote guests while you record in-studio for the best quality.</p>
-          </div>
-        </div>
-
-        <div>
-          <div class="card" style="margin-bottom:20px">
-            <h4>⏱️ How long does post-production take?</h4>
-            <p class="muted">Standard turnaround is 3-7 business days for most projects. Rush delivery (24-48 hours) is available for an additional fee. Web development projects typically take 2-4 weeks.</p>
-          </div>
-          
-          <div class="card" style="margin-bottom:20px">
-            <h4>🎬 Do you travel for shoots?</h4>
-            <p class="muted">Yes! We're available for on-location shoots in the DMV area and beyond. Travel fees may apply depending on distance and logistics.</p>
-          </div>
-          
-          <div class="card" style="margin-bottom:20px">
-            <h4>👥 Can I bring my own team?</h4>
-            <p class="muted">Absolutely. You're welcome to bring your own hair/makeup artists, stylists, or creative director. We can also provide a full crew if needed.</p>
-          </div>
-
-          <div class="card" style="margin-bottom:20px">
-            <h4>🔄 What's your revision policy?</h4>
-            <p class="muted">Most packages include 2 rounds of minor revisions. Major changes or additional rounds may incur extra fees. We work with you to get it right.</p>
+          <div style="margin-top:24px;text-align:center">
+            <p class="muted" style="font-size:14px">Questions? <a href="#consult" style="text-decoration:underline;color:var(--accent-2)">Contact us</a> for clarification before booking.</p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div style="margin-top:32px;text-align:center">
-        <p class="muted">Still have questions?</p>
-        <a href="#consult" class="btn" style="margin-top:12px">Get in Touch</a>
+  <!-- FAQ Section - Fully Collapsible -->
+  <section id="faq" class="section">
+    <div class="container">
+      <div class="accordion-header" onclick="toggleSectionAccordion(this)" style="padding:0 0 24px 0">
+        <h2 style="margin:0;font-size:clamp(24px,4vw,32px)">Frequently Asked Questions</h2>
+        <span class="accordion-icon" style="font-size:24px">▼</span>
+      </div>
+      <div class="accordion-content">
+        <div class="accordion-body" style="padding:0">
+          <p class="muted" style="margin-bottom:32px">Got questions? We've got answers.</p>
+          
+          <div style="display:grid;gap:20px">
+            <div class="card">
+              <h4>📅 What's your booking process?</h4>
+              <p class="muted">Book a free consultation, we discuss your project, provide a quote, you approve and pay the deposit (usually 50%), we schedule your session, deliver your files within 3-7 days.</p>
+            </div>
+            
+            <div class="card">
+              <h4>💰 What are your rates?</h4>
+              <p class="muted">Rates vary by service type and project scope. Studio rental starts at $85/hr. Full production packages start around $500. Contact us for a custom quote based on your needs.</p>
+            </div>
+            
+            <div class="card">
+              <h4>📸 Do you provide raw files?</h4>
+              <p class="muted">We deliver fully edited, high-resolution files. Raw files are available for an additional fee. All deliverables include usage rights for your business purposes.</p>
+            </div>
+
+            <div class="card">
+              <h4>🎙️ Can I record a podcast remotely?</h4>
+              <p class="muted">Yes! We offer remote podcast recording with our engineers. We can also help you set up remote guests while you record in-studio for the best quality.</p>
+            </div>
+
+            <div class="card">
+              <h4>⏱️ How long does post-production take?</h4>
+              <p class="muted">Standard turnaround is 3-7 business days for most projects. Rush delivery (24-48 hours) is available for an additional fee. Web development projects typically take 2-4 weeks.</p>
+            </div>
+            
+            <div class="card">
+              <h4>🎬 Do you travel for shoots?</h4>
+              <p class="muted">Yes! We're available for on-location shoots in the DMV area and beyond. Travel fees may apply depending on distance and logistics.</p>
+            </div>
+            
+            <div class="card">
+              <h4>👥 Can I bring my own team?</h4>
+              <p class="muted">Absolutely. You're welcome to bring your own hair/makeup artists, stylists, or creative director. We can also provide a full crew if needed.</p>
+            </div>
+
+            <div class="card">
+              <h4>🔄 What's your revision policy?</h4>
+              <p class="muted">Most packages include 2 rounds of minor revisions. Major changes or additional rounds may incur extra fees. We work with you to get it right.</p>
+            </div>
+          </div>
+
+          <div style="margin-top:32px;text-align:center">
+            <p class="muted">Still have questions?</p>
+            <a href="#consult" class="btn" style="margin-top:12px">Get in Touch</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Newsletter Section - Moved Higher -->
   <section class="section" style="background:linear-gradient(135deg,rgba(116,209,234,0.12) 0%,rgba(196,88,241,0.12) 100%),radial-gradient(circle at 70% 30%,rgba(116,209,234,0.15),transparent 50%)">
-    <div class="container" style="max-width:700px;text-align:center">
+    <div class="container" style="text-align:center">
       <h2>Stay in the Loop</h2>
       <p class="muted" style="margin-bottom:24px">Get creative tips, studio updates, exclusive offers, and behind-the-scenes content delivered to your inbox.</p>
       
@@ -1517,12 +1607,30 @@
       }
     });
 
+    // Set minimum date for consultation date picker (today)
+    const consultationDateInput = document.getElementById('consultation-date');
+    if (consultationDateInput) {
+      const today = new Date();
+      const minDate = today.toISOString().split('T')[0];
+      consultationDateInput.setAttribute('min', minDate);
+      
+      // Set max date to 3 months in the future
+      const maxDate = new Date();
+      maxDate.setMonth(maxDate.getMonth() + 3);
+      consultationDateInput.setAttribute('max', maxDate.toISOString().split('T')[0]);
+    }
+
     // Form submission handler
     document.getElementById('contactForm')?.addEventListener('submit', function(e){
       const action = this.getAttribute('action')||'';
       if(action.includes('your-form-id')){
         e.preventDefault();
-        alert('Form submitted! (Demo)\n\nReplace the form action with your Formspree ID or your backend endpoint.');
+        const formData = new FormData(this);
+        const date = formData.get('consultation_date');
+        const time1 = formData.get('consultation_time_1');
+        const time2 = formData.get('consultation_time_2');
+        const time3 = formData.get('consultation_time_3');
+        alert(`Form submitted! (Demo)\n\nDate: ${date}\nTime Options:\n1st Choice: ${time1}\n2nd Choice: ${time2}\n3rd Choice: ${time3}\n\nReplace the form action with your Formspree ID or your backend endpoint.`);
       }
     });
 
@@ -1637,6 +1745,22 @@
     const studioCarousel = document.getElementById('studioCarousel');
     if (studioCarousel) {
       new Carousel(studioCarousel);
+    }
+    
+    // Section Accordion functionality
+    function toggleSectionAccordion(header) {
+      const content = header.nextElementSibling;
+      const icon = header.querySelector('.accordion-icon');
+      const isActive = content.classList.contains('active');
+      
+      // Toggle current accordion
+      if (isActive) {
+        content.classList.remove('active');
+        icon.classList.remove('active');
+      } else {
+        content.classList.add('active');
+        icon.classList.add('active');
+      }
     }
   </script>
 </body>
